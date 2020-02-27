@@ -60,6 +60,17 @@ public class PyRat {
     /* Retourne la liste des points qui ne peuvent pas être atteints depuis la position « pos ».
         @return la liste des points qui ne peuvent pas être atteints depuis la position « pos ». */
     private List<Point> pointsInatteignables(Point pos) {
-        return null;
+        List<Point> atteignables = copyLaby.get(pos);
+        List<Point> allPoints = new ArrayList<>(copyLaby.keySet());
+
+        for (Point p : allPoints)
+        {
+            if (atteignables.contains(p))
+            {
+                allPoints.remove(p);
+            }
+        }
+
+        return allPoints;
     }
 }
